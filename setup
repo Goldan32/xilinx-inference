@@ -1,0 +1,5 @@
+#!/bin/bash
+
+. /tools/Xilinx/Vivado/2021.2/settings64.sh
+. /tools/Xilinx/Vitis/2021.2/settings64.sh
+. /tools/Xilinx/PetaLinux/2021.2/bin/settings.sh
