@@ -1,0 +1,6 @@
+build/*
+images/linux/*
+ip_cache/*
+components/*
+.petalinux/usage_statistics
+.petalinux/usage_statistics_token
