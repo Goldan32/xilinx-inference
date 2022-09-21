@@ -1,7 +1,7 @@
 SUMMARY = "VVAS accel sw libs"
 DESCRIPTION = "VVAS accelerator libraries"
 SECTION = "multimedia"
-LICENSE = "Apache-2.0"
+LICENSE = "CLOSED"
 
 include vvas.inc
 

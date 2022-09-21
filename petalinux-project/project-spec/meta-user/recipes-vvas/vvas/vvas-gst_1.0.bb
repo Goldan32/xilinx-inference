@@ -1,7 +1,7 @@
 SUMMARY = "VVAS gst"
 DESCRIPTION = "VVAS gstreamer plugins for VVAS SDK"
 SECTION = "multimedia"
-LICENSE = "Apache-2.0 & LGPLv2 & MIT & BSD-3-Clause"
+LICENSE = "CLOSED"
 
 include vvas.inc
 

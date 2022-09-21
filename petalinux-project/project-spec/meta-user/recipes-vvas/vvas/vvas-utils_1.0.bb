@@ -1,7 +1,7 @@
 SUMMARY = "VVAS util"
 DESCRIPTION = "VVAS utils for VVAS SDK"
 SECTION = "multimedia"
-LICENSE = "Apache-2.0"
+LICENSE = "CLOSED"
 
 include vvas.inc
 

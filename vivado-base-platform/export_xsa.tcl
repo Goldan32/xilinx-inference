@@ -51,5 +51,5 @@ generate_target all [get_files [current_bd_design].bd]
 # Write expandable XSA to vivado directory
 #write_hw_platform -force -file ./zcu106_custom_platform.xsa
 write_hw_platform -hw -force -file ./zcu106_custom_platform_hw.xsa
-write_hw_platform -hw_emu -force -file ./zcu106_custom_platform_hwemu.xsa
+#write_hw_platform -hw_emu -force -file ./zcu106_custom_platform_hwemu.xsa
 
