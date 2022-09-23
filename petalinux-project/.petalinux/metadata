@@ -1,6 +1,1 @@
-PETALINUX_VER=2021.2
-VALIDATE_HW_CHKSUM=1
-HARDWARE_PATH=/home/goldan/xilinx-inference/vivado-base-platform/build/vivado/zcu106_custom_platform_hw.xsa
-HARDWARE_CHECKSUM=fb2105b5b2f6c2b85cc698425dca1dfd
-YOCTO_SDK=895fbcce2f0a15ac1ff1fbc579359da1
-RFSCONFIG_CHKSUM=e406d2d8499b9c536c8de80add9a58c2
+PETALINUX_VER=2022.1
