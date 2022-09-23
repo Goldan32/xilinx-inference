@@ -28,4 +28,3 @@ iface usb0 inet static
 
 # Bluetooth networking
 iface bnep0 inet dhcp
-

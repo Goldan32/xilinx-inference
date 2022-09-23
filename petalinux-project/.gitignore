@@ -4,3 +4,5 @@ ip_cache/*
 components/*
 .petalinux/usage_statistics
 .petalinux/usage_statistics_token
+*.old
+*/system.xsa
