@@ -22,7 +22,6 @@ rootfs_config:
 
 linux:
 	petalinux-build
-	petalinux-build
 
 ifeq ($(COMMON_RFS_KRNL_SYSROOT), TRUE)
 sw_comp:
