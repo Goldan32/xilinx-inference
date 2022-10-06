@@ -1,6 +1,6 @@
 PETALINUX_VER=2022.1
 VALIDATE_HW_CHKSUM=1
-HARDWARE_PATH=/home/goldan/onlab/xilinx-inference/vivado-base-platform/build/vivado/xilinx_zcu106_vcuDec_DP.xsa
-HARDWARE_CHECKSUM=38311c8230e86fc7ee35876b34365732
+HARDWARE_PATH=/home/goldan/onlab/check/xilinx-inference/vivado-base-platform/build/vivado/xilinx_zcu106_vcuDec_DP.xsa
+HARDWARE_CHECKSUM=bae2ad999a7e66f402fed88bdc3b96c7
 YOCTO_SDK=1dd2a216cb40dc0b474883920ea91cc6
 RFSCONFIG_CHKSUM=1f9d43643efcd2f5a1568c941a6769a9

@@ -1,7 +1,9 @@
 CPU_ARCH=a53
-OUTPUT=../platform_repo/tmp/sw_components/
+OUTPUT=../platform_repo/tmp/sw_components
 SYSROOT=../platform_repo/sysroot
 XSA_DIR = ../vivado-base-platform/build/vivado
+OLD_XSA_DIR=../vivado-base-platform
+PLATFORM ?= xilinx_zcu106_vcuDec_DP
 
 export COMMON_RFS_KRNL_SYSROOT = FALSE
 
@@ -26,7 +28,7 @@ linux:
 ifeq ($(COMMON_RFS_KRNL_SYSROOT), TRUE)
 sw_comp:
 	mkdir -p $(OUTPUT)
-	cp -rf $(XSA_DIR)/src $(OUTPUT)
+	cp -rf $(OLD_XSA_DIR)/src $(OUTPUT)
 	mkdir -p ${OUTPUT}/src/boot
 	cp -f images/linux/boot.scr ${OUTPUT}/src/${CPU_ARCH}/xrt/image/boot.scr
 	cp -f images/linux/system.dtb ${OUTPUT}/src/${CPU_ARCH}/xrt/image/system.dtb
@@ -37,7 +39,7 @@ sw_comp:
 else
 sw_comp:
 	mkdir -p $(OUTPUT)
-	cp -rf $(XSA_DIR)/src $(OUTPUT)
+	cp -rf $(OLD_XSA_DIR)/src $(OUTPUT)
 	mkdir -p ${OUTPUT}/src/boot
 	mkdir -p ${OUTPUT}/src/${CPU_ARCH}/xrt/filesystem
 	cp -f images/linux/Image ${OUTPUT}/src/${CPU_ARCH}/xrt/image/Image
@@ -68,6 +70,7 @@ clean:
 	petalinux-build -x cleanall
 	petalinux-build -x mrproper
 	$(RM) -r images/linux/*
+	$(RM) -r .Xil
 
 ultraclean: clean
 	${RM} -r build ip_cache components
