@@ -7,9 +7,11 @@ XSA_DIR ?= ./vivado-base-platform/build/vivado
 CWD=$(shell pwd)
 OUTPUT_PATH ?= $(CWD)/platform_repo
 
-.PHONY: all clean
+.PHONY: all platform clean
 
-all: vivado-proj petalinux-proj petalinux-sysroot pfm
+all: platform
+
+platform: vivado-proj petalinux-proj petalinux-sysroot pfm
 
 vivado-proj:
 	make -C $(VIVADO_PROJ_FOLDER) all
