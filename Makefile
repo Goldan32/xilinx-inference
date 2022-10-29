@@ -7,17 +7,18 @@ XSA_DIR ?= ./vivado-base-platform/build/vivado
 CWD=$(shell pwd)
 OUTPUT_PATH ?= $(CWD)/platform_repo
 ACCELERATOR_DOWNLOAD_PATH = https://www.xilinx.com/bin/public/openDownload?filename=DPUCZDX8G.tar.gz
-ACCELERATOR_NAME=DPUCZDX8G
-ACCELERATOR_TARGZ=$(ACCELERATOR_NAME).tar.gz
 VITIS_AI_PATH=./Vitis-AI
+ACCELERATOR_NAME=DPUCZDX8G
+ACCELERATOR_TARGET=$(VITIS_AI_PATH)/$(ACCELERATOR_NAME)/README.md
+ACCELERATOR_TARGZ=$(ACCELERATOR_NAME).tar.gz
 
-.PHONY: all platform clean
+.PHONY: all platform clean project
 
 all: platform
 
 platform: vivado-proj petalinux-proj petalinux-sysroot pfm
 
-project: $(ACCELERATOR_NAME)
+project: | $(ACCELERATOR_TARGET)
 
 vivado-proj:
 	make -C $(VIVADO_PROJ_FOLDER) all
@@ -41,7 +42,7 @@ pfm:
 	cp -rf platform_repo/tmp/sw_components/src/${CPU_ARCH}/xrt/filesystem platform_repo/${PLATFORM}/export/${PLATFORM}/sw/${PLATFORM}/
 endif
 
-$(ACCELERATOR_NAME):
+$(ACCELERATOR_TARGET):
 	wget -O $(VITIS_AI_PATH)/$(ACCELERATOR_TARGZ) $(ACCELERATOR_DOWNLOAD_PATH)
 	tar -xf $(VITIS_AI_PATH)/$(ACCELERATOR_TARGZ) -C $(VITIS_AI_PATH)/
 	rm $(VITIS_AI_PATH)/$(ACCELERATOR_TARGZ)
