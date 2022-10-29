@@ -21,3 +21,4 @@ pre-built/linux/
 /components/yocto
 project-spec/hw-description/*
 .Xil/*
+system.bit

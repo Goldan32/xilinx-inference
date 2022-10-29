@@ -150,7 +150,7 @@ CONFIG_SUBSYSTEM_EXTRA_DT_FILES=""
 #
 CONFIG_SUBSYSTEM_BOOTARGS_AUTO=y
 CONFIG_SUBSYSTEM_BOOTARGS_EARLYPRINTK=y
-
+CONFIG_SUBSYSTEM_BOOTARGS_GENERATED=" earlycon console=ttyPS0,115200 clk_ignore_unused root=/dev/nfs nfsroot=10.0.2.15:/tftpboot/zcu106/arany/nfsroot,tcp ip=dhcp rw cma=1000M"
 CONFIG_SUBSYSTEM_DEVICETREE_COMPILER_FLAGS="-@"
 # CONFIG_SUBSYSTEM_DTB_OVERLAY is not set
 CONFIG_SUBSYSTEM_REMOVE_PL_DTB=y
@@ -302,4 +302,3 @@ CONFIG_YOCTO_BUILDTOOLS_EXTENDED=y
 # User Layers
 #
 CONFIG_USER_LAYER_0=""
-CONFIG_SUBSYSTEM_BOOTARGS_GENERATED=" earlycon console=ttyPS0,115200 clk_ignore_unused root=/dev/nfs nfsroot=10.0.2.15:/tftpboot/zcu106/arany/nfsroot,tcp ip=dhcp rw cma=1000M"
