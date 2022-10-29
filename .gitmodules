@@ -1,3 +1,6 @@
 [submodule "Vitis-AI"]
 	path = Vitis-AI
 	url = https://github.com/Xilinx/Vitis-AI.git
+[submodule "VVAS"]
+	path = VVAS
+	url = https://github.com/Xilinx/VVAS.git
