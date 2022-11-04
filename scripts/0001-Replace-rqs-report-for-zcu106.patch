@@ -1,13 +1,14 @@
-From d626efda8585c7e272eb30eca38d4d07311af14a Mon Sep 17 00:00:00 2001
+From 1c111a385ce269289bf78889227b63c4e378170f Mon Sep 17 00:00:00 2001
 From: "goldan (xilinx-vm)" <xilinx-vm@ubuntu.com>
-Date: Sat, 29 Oct 2022 10:05:27 +0200
-Subject: [PATCH] Replace rqs report for zcu106
+Date: Fri, 4 Nov 2022 19:32:07 +0100
+Subject: [PATCH] Replace rqs report and disable strict timing
 
 ---
  .../smart_model_select/prj_conf/preplace.tcl    |   2 +-
+ .../smart_model_select/prj_conf/prj_config      |   8 ++++----
  .../smart_model_select/prj_conf/rqs_report.rqs  | Bin 0 -> 21166 bytes
  .../prj_conf/stage1_suggestions.rqs             | Bin 3706 -> 0 bytes
- 3 files changed, 1 insertion(+), 1 deletion(-)
+ 4 files changed, 5 insertions(+), 5 deletions(-)
  create mode 100644 vvas-examples/Embedded/smart_model_select/prj_conf/rqs_report.rqs
  delete mode 100644 vvas-examples/Embedded/smart_model_select/prj_conf/stage1_suggestions.rqs
 
@@ -21,6 +22,29 @@ index 9396538..58bb789 100644
  puts $script_path
 -read_qor_suggestions ${script_path}/stage1_suggestions.rqs
 +read_qor_suggestions ${script_path}/rqs_report.rqs
+diff --git a/vvas-examples/Embedded/smart_model_select/prj_conf/prj_config b/vvas-examples/Embedded/smart_model_select/prj_conf/prj_config
+index 25996c7..cc48058 100755
+--- a/vvas-examples/Embedded/smart_model_select/prj_conf/prj_config
++++ b/vvas-examples/Embedded/smart_model_select/prj_conf/prj_config
+@@ -39,8 +39,8 @@ nk=DPUCZDX8G:2
+ misc=:solution_name=link
+ 
+ param=compiler.addOutputTypes=sd_card
+-#Following switch will ignore the timing violations during xclbin creation
+-#param=compiler.skipTimingCheckAndFrequencyScaling=1
++#Following switch will ignore the timing violationsxilinxxilinx during xclbin creation
++param=compiler.skipTimingCheckAndFrequencyScaling=1
+ 
+ [vivado]
+ # Timing closed using 2022.1 Vitis release (SW Build : 3526262,
+@@ -50,5 +50,5 @@ prop=run.impl_1.STEPS.PLACE_DESIGN.TCL.PRE=prj_conf/preplace.tcl
+ prop=run.impl_1.STEPS.OPT_DESIGN.ARGS.DIRECTIVE=ExploreArea
+ prop=run.impl_1.STEPS.PLACE_DESIGN.ARGS.DIRECTIVE=Explore
+ prop=run.impl_1.STEPS.PHYS_OPT_DESIGN.IS_ENABLED=true
+-prop=run.impl_1.STEPS.PHYS_OPT_DESIGN.ARGS.DIRECTIVE=AggressiveExplore
+-prop=run.impl_1.STEPS.ROUTE_DESIGN.ARGS.DIRECTIVE=NoTimingRelaxation
++prop=run.impl_1.STEPS.PHYS_OPT_DESIGN.ARGS.DIRECTIVE=ExploreWithHoldFix
++prop=run.impl_1.STEPS.ROUTE_DESIGN.ARGS.DIRECTIVE=Explore
 diff --git a/vvas-examples/Embedded/smart_model_select/prj_conf/rqs_report.rqs b/vvas-examples/Embedded/smart_model_select/prj_conf/rqs_report.rqs
 new file mode 100644
 index 0000000000000000000000000000000000000000..2766c3f7d2323e90fa6272c1d284b14801e7e47b
